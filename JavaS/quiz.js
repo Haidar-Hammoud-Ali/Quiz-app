@@ -31,3 +31,13 @@ if (!quiz) {
     });
   }
     
+  function submitQuiz() {
+    const form = document.getElementById("quizForm");
+    let score = 0;
+  
+    quiz.questions.forEach((q, index) => {
+      const selected = form.querySelector(`input[name="q${index}"]:checked`);
+      if (selected && selected.value === q.answer) {
+        score++;
+      }
+    });
