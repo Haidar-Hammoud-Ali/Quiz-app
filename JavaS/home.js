@@ -55,3 +55,14 @@ if (!quizzes || quizzes.length === 0) {
   ];
   localStorage.setItem("quizzes", JSON.stringify(quizzes));
 }
+
+const quizList = document.getElementById("quizList");
+
+quizzes.forEach(quiz => {
+  const quizBtn = document.createElement("button");
+  quizBtn.innerText = quiz.title;
+  quizBtn.onclick = () => {
+    window.location.href = `quiz.html?quizId=${quiz.id}`;
+  };
+  quizList.appendChild(quizBtn);
+});
