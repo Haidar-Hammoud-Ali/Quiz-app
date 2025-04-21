@@ -17,3 +17,24 @@ if (users.length === 0) {
     quizzes.forEach(quiz => {
         html += `<th>${quiz.title}</th>`;
       });  
+
+      html += "</tr>";
+
+      users.forEach(user => {
+        if (user.email === "admin@q.com") return;
+    
+        html += `<tr><td>${user.email}</td>`;
+    
+        quizzes.forEach(quiz => {
+          const score = user.scores && user.scores[quiz.id] !== undefined
+            ? user.scores[quiz.id]
+            : "Not taken";
+          html += `<td>${score}</td>`;
+        });
+    
+        html += "</tr>";
+      });
+    
+      html += "</table>";
+      tableDiv.innerHTML = html;
+    }
