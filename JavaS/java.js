@@ -29,16 +29,21 @@ function login (){
     alert("Please enter both email and password.");
     return;
   }
-  let users = JSON.parse(localStorage.getItem("users")) || [];
+
+  const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find(u => u.email === email && u.password === password);
+
   if (user) {
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
-    alert(`Welcome back, ${email.split('@')[0]}!`);
-    if (email === "admin@quiz.com" && password === "admin123") {
+    localStorage.setItem("loggin", JSON.stringify(user));
+    alert(`Welcome, ${email.split('@')[0]}!`);
+
+    if (email === "admin@q.com" && password === "admin") {
       window.location.href = "dashboard.html";
     } else {
       window.location.href = "home.html";
     }
+
+
   } else {
     alert("Oops! Incorrect email or password.");
   }
