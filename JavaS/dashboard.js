@@ -9,3 +9,11 @@ const users = JSON.parse(localStorage.getItem("users")) || [];
 const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
 
 const tableDiv = document.getElementById("userTable");
+
+if (users.length === 0) {
+    tableDiv.innerHTML = "<p>users not found.</p>";
+  } else {
+    let html = `<table border="1" cellpadding="10"><tr><th>User</th>`;
+    quizzes.forEach(quiz => {
+        html += `<th>${quiz.title}</th>`;
+      });  
