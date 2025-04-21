@@ -6,10 +6,18 @@ if (!email || !password) {
     alert("Please fill in both email and password.");
     return;
   }
+  const users = JSON.parse(localStorage.getItem("users")) || [];
+  const exists = users.find(u => u.email === email);
+  if (exists) {
+    alert("This email is already reistered.");
+    return;
+  }
+  users.push({ email, password, scores: {} });
+  localStorage.setItem("users", JSON.stringify(users));
+  alert("Registration successful!");
+  showTab('login');
 }
 
-
-const users = JSON.parse(localStorage.getItem("users")) || [];
 
 const user = users.find(u => u.email === email && u.password === password);
 
@@ -27,11 +35,7 @@ if (user) {
         alert("Retry another email or password.");
       }
       
-function showTab(tab) {
-  document.getElementById('Login').style.display = tab === 'Login' ? 'block' : 'none';
-  document.getElementById('regist').style.display = tab === 'regist' ? 'block' : 'none';
-   }
-            
-      
-            
-      
+  function showTab(tab) {
+    document.getElementById('Login').style.display = tab === 'Login' ? 'block' : 'none';
+    document.getElementById('regist').style.display = tab === 'regist' ? 'block' : 'none';
+    }
