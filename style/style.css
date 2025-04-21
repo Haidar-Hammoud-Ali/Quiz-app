@@ -1,0 +1,28 @@
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    background-color: lavender;
+    text-align: center;
+}
+
+  
+button {
+    padding: 10px 20%;
+    margin: 7px;
+    background-color: #34dbb7;
+    color: rgb(0, 0, 0);
+    cursor: pointer;
+    border: none; 
+    border-radius: 5px;
+    
+  }
+button:hover {
+    background-color: #46b929;
+  }
+
+input {
+    width: 90%;
+    margin: 10px 0;
+    padding: 10px;
+    border-radius: 20px;
+    border: 2px solid #f30505;
+  }
