@@ -12,14 +12,14 @@ let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 if (!quizzes || quizzes.length === 0) {
   quizList.innerText = "No quizzes yet.";
 } else {
-quizzes.forEach(quiz => {
+  quizzes.forEach(quiz => {
     const quizButton = document.createElement("button");
     quizButton.innerText = quiz.title;
     quizButton.onclick = () => {
       
       localStorage.setItem("currentQuizId", quiz.id);
       window.location.href = "quiz.html";
-  };
+    };
     quizList.appendChild(quizButton);
-});
+  });
 }
