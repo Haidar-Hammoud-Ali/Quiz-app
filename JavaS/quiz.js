@@ -41,3 +41,5 @@ if (!quiz) {
         score++;
       }
     });
+
+    document.getElementById("result").innerHTML = `<h3>Your score: ${score}/${quiz.questions.length}</h3>`;
