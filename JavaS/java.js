@@ -6,16 +6,19 @@ if (!email || !password) {
     alert("Please fill in both email and password.");
     return;
   }
+
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const exists = users.find(u => u.email === email);
+
+
   if (exists) {
     alert("This email is already reistered.");
     return;
   }
   users.push({ email, password, scores: {} });
   localStorage.setItem("users", JSON.stringify(users));
-  alert("Registration successful!");
-  showTab('login');
+  alert("success!");
+  showTab('Login');
 }
 
 function login (){
