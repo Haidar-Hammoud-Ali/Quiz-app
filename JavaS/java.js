@@ -50,21 +50,7 @@ function login (){
 }
 
 
-if (user) {
-    localStorage.setItem("loggedInUser", JSON.stringify(user));
-    alert(`Welcome back, ${email.split('@')[0]}!`);
-   
-    if (email === "log@admin.com" && password === "12345678") {
-        window.location.href = "dashboard.html";
-      } else {
-        window.location.href = "home.html";
-      }
+  function showTab(tab) {
+    document.getElementById('Login').style.display = tab === 'Login' ? 'block' : 'none';
+    document.getElementById('regist').style.display = tab === 'regist' ? 'block' : 'none';
     }
-    else {
-        alert("Retry another email or password.");
-      }
-      
-  // function showTab(tab) {
-  //   document.getElementById('Login').style.display = tab === 'Login' ? 'block' : 'none';
-  //   document.getElementById('regist').style.display = tab === 'regist' ? 'block' : 'none';
-  //   }
