@@ -43,3 +43,12 @@ if (!quiz) {
     });
 
     document.getElementById("result").innerHTML = `<h3>Your score: ${score}/${quiz.questions.length}</h3>`;
+
+    const users = JSON.parse(localStorage.getItem("users"));
+  const currentUser = users.find(u => u.email === loggin.email);
+  if (!currentUser.scores) currentUser.scores = {};
+  currentUser.scores[quizId] = score;
+
+  localStorage.setItem("users", JSON.stringify(users));
+  localStorage.setItem("loggin", JSON.stringify(currentUser));
+}
