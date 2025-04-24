@@ -20,11 +20,6 @@ function login (){
   const email = document.getElementById("lemail").value.trim();
   const password = document.getElementById("lpass").value;
 
-  if (!email || !password) {
-    alert("Please enter both email and password.");
-    return;
-  }
-
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const user = users.find(u => u.email === email && u.password === password);
 
@@ -40,7 +35,7 @@ function login (){
 
 
   } else {
-    alert("Oops! Incorrect email or password.");
+    alert("Incorrect email or password.");
   }
 }
 
