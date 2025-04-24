@@ -49,8 +49,3 @@ function login (){
   }
 }
 
-      
-  function showTab(tab) {
-    document.getElementById('Login').style.display = tab === 'Login' ? 'block' : 'none';
-    document.getElementById('regist').style.display = tab === 'regist' ? 'block' : 'none';
-    }
