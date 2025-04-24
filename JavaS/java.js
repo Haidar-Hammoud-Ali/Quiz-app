@@ -2,11 +2,6 @@ function regist () {
 const email = document.getElementById("remail").value.trim();
 const password = document.getElementById("rpass").value;
 
-if (!email || !password) {
-    alert("Please fill in both email and password.");
-    return;
-  }
-
   const users = JSON.parse(localStorage.getItem("users")) || [];
   const exists = users.find(u => u.email === email);
 

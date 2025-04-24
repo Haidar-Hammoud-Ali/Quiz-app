@@ -1,5 +1,4 @@
 const loggin = JSON.parse(localStorage.getItem("loggin"));
-// const quizList = document.getElementById("quizbdg")
 if (!loggin){
     alert ("You need to log in");
     window.location.href ="index.html";
