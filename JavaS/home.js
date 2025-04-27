@@ -1,5 +1,7 @@
-const loggin = JSON.parse(localStorage.getItem("loggin"));
-if (!loggin){
+let loggin = localStorage.getItem("loggin");
+loggin = JSON.parse(loggin);
+
+if (loggin= null){
     alert ("You need to log in");
     window.location.href ="index.html";
 }
