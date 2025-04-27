@@ -6,7 +6,8 @@ if (loggin= null){
     window.location.href ="index.html";
 }
 
-document.getElementById("welcoming").innerText = `Welcome, ${loggin.email.split('@')[0]}!`;
+let welcomtxt = document.getElementById("welcoming");
+let namebefrat = loggin.email.split('@')[0];
 
 let quizzes = JSON.parse(localStorage.getItem("quizzes"));
 
