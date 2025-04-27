@@ -1,12 +1,17 @@
-const quizId = localStorage.getItem("currentQuizId");
+let quizId = localStorage.getItem("currentQuizId");
 
-const loggin = JSON.parse(localStorage.getItem("loggin"));
-if (!loggin) {
-  alert("You must log in first.");
+let loggindata = localStorage.getItem("loggin");
+loggindata = JSON.parse (loggindata);
+
+if (loggindata===null) {
+  alert("You must log in first");
   window.location.href = "index.html";
 }
 
-const quizzes = JSON.parse(localStorage.getItem("quizzes")) || [];
+let quizzes = localStorage.getItem("quizzes");
+quizzes = JSON.parse (quizzes)|| [];
+
+
 const quiz = quizzes.find(q => q.id === quizId);
 
 if (!quiz) {
