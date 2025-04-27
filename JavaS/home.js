@@ -43,17 +43,16 @@ if (!quizzes || quizzes.length === 0) {
 
 const quizList = document.getElementById("quizbdg");
 
-if (!quizzes || quizzes.length === 0) {
-  quizList.innerText = "No quizzes yet.";
-} else {
-  quizzes.forEach(quiz => {
-    const quizButton = document.createElement("button");
-    quizButton.innerText = quiz.title;
-    quizButton.onclick = () => {
+for (let i=0; i<quizzes.length; i=i+1){
+  let quiz = quizzes[i];
+
+  let quizButton = document.createElement("button");
+  quizButton.innerText = quiz.title;
+
+    quizButton.onclick = function() {
       
       localStorage.setItem("currentQuizId", quiz.id);
       window.location.href = "quiz.html";
     };
     quizList.appendChild(quizButton);
-  });
-}
+  };
