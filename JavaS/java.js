@@ -1,19 +1,20 @@
 function regist () {
-const email = document.getElementById("remail").value.trim();
-const password = document.getElementById("rpass").value;
+let email = document.getElementById("remail").value.trim();
+let password = document.getElementById("rpass").value;
 
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const exists = users.find(u => u.email === email);
+  let users = localStorage.getItem("users");
+  users = JSON.parse (users) || [];
 
-
-  if (exists) {
-    alert("This email is already reistered.");
-    return;
+  for (let i = 0; i < usersList.length; i++) {
+    if (usersList[i].email === email) {
+      alert("Already registered");
+      return;
+    }
   }
-  users.push({ email, password, scores: {} });
+
+  users.push({email:email, password:password });
   localStorage.setItem("users", JSON.stringify(users));
   alert("success!");
-  showTab('Login');
 }
 
 function login (){
