@@ -11,8 +11,14 @@ if (loggindata===null) {
 let quizzes = localStorage.getItem("quizzes");
 quizzes = JSON.parse (quizzes)|| [];
 
+let selectquiz = null;
+for (let i=0; i<quizzes.length ; i=i+1){
+  if (quizzes [i].id ===quizId){
+    selectquiz = quizzes [i];
+    break;
+  }
+}
 
-const quiz = quizzes.find(q => q.id === quizId);
 
 if (!quiz) {
     document.getElementById("quizTitle").innerText = "Quiz not found.";
