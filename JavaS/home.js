@@ -8,8 +8,10 @@ if (loggin= null){
 
 let welcomtxt = document.getElementById("welcoming");
 let namebefrat = loggin.email.split('@')[0];
+welcomtxt.innerText = "welcome," + namebefrat + "!";
 
-let quizzes = JSON.parse(localStorage.getItem("quizzes"));
+let quizzes = localStorage.getItem("quizzes");
+quizzes = json.parse (quizzes);
 
 
 if (!quizzes || quizzes.length === 0) {
