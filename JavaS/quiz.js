@@ -52,15 +52,16 @@ quizele.innerText = "Not found";
     
     
   function submitQuiz() {
-    const form = document.getElementById("quizForm");
+    let quizform = document.getElementById("quizform");
     let score = 0;
-  
-    quiz.questions.forEach((q, index) => {
-      const selected = form.querySelector(`input[name="q${index}"]:checked`);
-      if (selected && selected.value === q.answer) {
+    for (let i=0; i<selectquiz.questions.length; i=i+1){
+      
+      let selected = quizform.querySelector(`input[name="q${i}"]:checked`);
+      if (selected && selected.value === selectquiz.questions[i].answer) {
         score++;
-      }
-    });
+    }
+      
+    }
 
     document.getElementById("result").innerHTML = `<h3>Your score: ${score}/${quiz.questions.length}</h3>`;
 
