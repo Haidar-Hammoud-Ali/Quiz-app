@@ -18,11 +18,18 @@ let password = document.getElementById("rpass").value;
 }
 
 function login (){
-  const email = document.getElementById("lemail").value.trim();
-  const password = document.getElementById("lpass").value;
+  let email = document.getElementById("lemail").value.trim();
+  let password = document.getElementById("lpass").value;
 
-  const users = JSON.parse(localStorage.getItem("users")) || [];
-  const user = users.find(u => u.email === email && u.password === password);
+  let users = localStorage.getItem("users");
+   users = JSON.parse (users)|| [];
+
+    for (let i = 0; i < users.length; i++) {
+    if (users[i].email === email && users[i].password === password) {
+      foundUser = users[i];
+      break;
+    }
+  }
 
   if (user) {
     localStorage.setItem("loggin", JSON.stringify(user));
