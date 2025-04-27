@@ -28,23 +28,28 @@ quizele.innerText = "Not found";
 }
    else {
     quizele.innerText = selectquiz.title;
-    const form = document.getElementById("quizForm");
 
-    quiz.questions.forEach((q, index) => {
-      const questionDiv = document.createElement("div");
-  
-      questionDiv.innerHTML = `<p><strong>${index + 1}. ${q.question}</strong></p>`;
-  
-      q.options.forEach(option => {
+
+    let quizform = document.getElementById("quizform");
+    for (let i=0; i<selectquiz.length; i=i+1){
+      let question =  selectquiz.questions[i];
+
+      let questionDiv = document.createElement("div");
+      questionDiv.innerHTML = "<p><strong>" +(i + 1)+ question.question + "</strong></p>";
+
+      for (let j= 0; j< question.options.length; j=j+1){
+        let option = question.options [j];
         questionDiv.innerHTML += `
           <label>
-            <input type="radio" name="q${index}" value="${option}"> ${option}
+            <input type="radio" name="${i}" value="${option}"> ${option}
           </label><br>`;
-      });
-      form.appendChild(questionDiv);
-      form.appendChild(document.createElement("hr"));
-    });
-  }
+      }
+      quizform.appendChild(questionDiv);
+      quizform.appendChild(document.createElement("hr"));
+
+      }
+    }
+    
     
   function submitQuiz() {
     const form = document.getElementById("quizForm");
