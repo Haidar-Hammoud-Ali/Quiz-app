@@ -20,10 +20,14 @@ for (let i=0; i<quizzes.length ; i=i+1){
 }
 
 
-if (!quiz) {
-    document.getElementById("quizTitle").innerText = "Quiz not found.";
-  } else {
-    document.getElementById("quizTitle").innerText = quiz.title;
+
+let quizele = document.getElementById("quizTitle");
+if (selectquiz===null){
+quizele.innerText = "Not found";
+
+}
+   else {
+    quizele.innerText = selectquiz.title;
     const form = document.getElementById("quizForm");
 
     quiz.questions.forEach((q, index) => {
